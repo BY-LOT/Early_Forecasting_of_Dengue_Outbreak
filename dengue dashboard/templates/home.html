@@ -24,11 +24,24 @@
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-left">
-        <h1>FORECAST<br>DENGUE OUTBREAK</h1>
+        <h1>
+            FORECAST<br>
+            DENGUE OUTBREAK
+        </h1>
+
+        <div class="predict-container">
+            <button type="button" class="predict-btn">
+                <span class="icon-chart">📈</span>
+                Predict
+            </button>
+        </div>
     </div>
 
     <div class="hero-right">
-        <img src="{{ url_for('static', filename='images/forecastdashboard.png') }}">
+        <img
+            src="{{ url_for('static', filename='images/forecastdashboard.png') }}"
+            alt="Dengue Forecast Dashboard"
+        >
     </div>
 </section>
 
