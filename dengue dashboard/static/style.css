@@ -74,7 +74,7 @@ body {
 }
 
 .hero-left h1 {
-    font-size: 72px;
+    font-size: 75px;
     font-weight: 900;
     line-height: 1;
     text-transform: uppercase;
@@ -84,7 +84,7 @@ body {
 .hero-right img {
     max-width: 510px;
     border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(10,10,0,11.5);
 }
 
 /* ========================= */
@@ -410,4 +410,37 @@ body {
 .dashboard canvas {
     width: 116% !important;
     height: 90% !important;
+}
+
+/* ========================= */
+/* PREDICT BUTTON */
+/* ========================= */
+
+.predict-container {
+    margin-top: 30px;
+}
+
+.predict-btn {
+    background: linear-gradient(90deg, #ff6a5b, #ff4d4d);
+    color: white;
+    border: none;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.predict-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 77, 77, 0.6);
+}
+
+.predict-btn:active {
+    transform: scale(0.96);
 }
