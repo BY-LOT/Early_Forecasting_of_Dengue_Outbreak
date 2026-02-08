@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Dengue Forecast</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo-text">
+        BATANGAS Dengue<br><span>Forecast System</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/map">Map</a></li>
+        <li class="active"><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="search">Specify Forecast</li>
+    </ul>
+</nav>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+
+    <!-- LEFT DETAILS -->
+    <div class="dashboard-details">
+        <h3>Details</h3>
+        <p>
+            This dashboard presents monthly dengue trends,
+            forecast accuracy, and regional case distribution
+            within CALABARZON.
+        </p>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <div class="dashboard-content">
+
+        <!-- TOP ROW -->
+        <div class="top-row">
+
+            <!-- BAR CHART -->
+            <div class="card chart-card">
+                <canvas id="monthlyCases"></canvas>
+            </div>
+
+            <!-- CIRCULAR FORECAST -->
+            <div class="card circle-card">
+                <canvas id="forecastAccuracy"></canvas>
+                <h2>78%</h2>
+                <p>City Cases Forecasted</p>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM ROW -->
+        <div class="bottom-row">
+
+            <!-- HEAT TABLE -->
+            <div class="card heat-card">
+                <h4>Monthly Dengue Cases Heatmap</h4>
+                <table>
+                    <tr>
+                        <th>City</th>
+                        <th>Jan</th><th>Feb</th><th>Mar</th>
+                        <th>Apr</th><th>May</th><th>Jun</th>
+                    </tr>
+                    <tr>
+                        <td>Antipolo</td>
+                        <td class="hot"></td><td class="hot"></td><td class="mid"></td>
+                        <td class="mid"></td><td class="low"></td><td class="low"></td>
+                    </tr>
+                    <tr>
+                        <td>Dasmariñas</td>
+                        <td class="mid"></td><td class="hot"></td><td class="hot"></td>
+                        <td class="mid"></td><td class="mid"></td><td class="low"></td>
+                    </tr>
+                    <tr>
+                        <td>Calamba</td>
+                        <td class="low"></td><td class="mid"></td><td class="mid"></td>
+                        <td class="hot"></td><td class="hot"></td><td class="mid"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- HORIZONTAL BAR -->
+            <div class="card chart-card">
+                <canvas id="cityCases"></canvas>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CHART SCRIPTS -->
+<script>
+/* Monthly Dengue Bar Chart */
+new Chart(document.getElementById('monthlyCases'), {
+    type: 'bar',
+    data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [{
+            label: 'Cases',
+            data: [1000, 900, 850, 780, 720, 680, 640, 620, 700, 760, 820, 880],
+            backgroundColor: '#ff9800'
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false }},
+        scales: {
+            y: { ticks: { color: 'white' }},
+            x: { ticks: { color: 'white' }}
+        }
+    }
+});
+
+/* Circular Forecast Chart */
+new Chart(document.getElementById('forecastAccuracy'), {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [78, 22],
+            backgroundColor: ['#ff9800', '#1a1a1a'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        cutout: '75%',
+        plugins: { legend: { display: false }}
+    }
+});
+
+/* City Cases Horizontal Bar */
+new Chart(document.getElementById('cityCases'), {
+    type: 'bar',
+    data: {
+        labels: ['Antipolo','Dasmariñas','Calamba','Bacoor'],
+        datasets: [{
+            data: [420, 350, 280, 210],
+            backgroundColor: '#ff9800'
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        plugins: { legend: { display: false }},
+        scales: {
+            x: { ticks: { color: 'white' }},
+            y: { ticks: { color: 'white' }}
+        }
+    }
+});
+</script>
+
+</body>
+</html>

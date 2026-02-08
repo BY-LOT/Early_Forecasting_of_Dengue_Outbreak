@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | Dengue Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-text">
+        BATANGAS Dengue<br><span>Forecast System</span>
+    </div>
+    <ul class="nav-links">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="search">Specify Forecast</li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>FORECAST<br>DENGUE OUTBREAK</h1>
+    </div>
+
+    <div class="hero-right">
+        <img src="{{ url_for('static', filename='images/forecastdashboard.png') }}">
+    </div>
+</section>
+
+<!-- FEATURES SECTION (ADDED) -->
+<section class="features">
+    <div class="feature-card">
+        <div class="icon analytics"></div>
+        <h3>Advanced Analytics</h3>
+        <p>
+            Our AI-powered system predicts dengue outbreaks with
+            90% accuracy using historical data.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon warning"></div>
+        <h3>Early Warnings</h3>
+        <p>
+            Receive alerts before outbreaks occur, giving you time
+            to prepare and prevent.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon prevention"></div>
+        <h3>Prevention Tips</h3>
+        <p>
+            Get personalized recommendations to protect your
+            community from dengue.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BATANGAS Dengue Forecast System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-text">
+            BATANGAS Dengue<br><span>Forecast System</span>
+        </div>
+        <ul class="nav-links">
+            <li>Home</li>
+            <li>Map</li>
+            <li>Dashboard</li>
+            <li>Contact</li>
+            <li class="active">About</li>
+            <li class="search">Specify Forecast</li>
+        </ul>
+    </nav>
+
+    <!-- HERO / FORECAST SECTION -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>FORECAST<br>OUTBREAK</h1>
+        </div>
+
+        <div class="hero-right">
+            <img src="{{ url_for('static', filename='forecast_dashboard.png') }}"
+                 alt="Dengue Forecast Analytics">
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (FROM PREVIOUS DESIGN) -->
+    <section class="about">
+        <div class="card">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Dengue Forecast">
+            <h3>DENGUE OUTBREAK<br><span>FORECAST</span></h3>
+        </div>
+
+        <div class="text-content">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map | Dengue Forecast</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo-text">
+        BATANGAS Dengue<br><span>Forecast System</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/map">Map</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="search">Specify Forecast</li>
+    </ul>
+</nav>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+    <div class="map-details">
+        <h2>Batangas Dengue Heatmap</h2>
+        <p>
+            This heatmap shows dengue outbreak intensity across
+            <strong>Batangas Province</strong> based on reported cases.
+        </p>
+    </div>
+
+    <div id="map"></div>
+</section>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Leaflet Heat Plugin -->
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+<script>
+    /* ================================
+       INITIALIZE MAP (BATANGAS ONLY)
+       ================================ */
+
+    var map = L.map('map', {
+        minZoom: 8,
+        maxZoom: 13
+    }).setView([13.9, 121.1], 9); // Batangas center
+
+    /* OpenStreetMap Tiles */
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    /* ================================
+       BATANGAS BOUNDS (LOCK MAP)
+       ================================ */
+    var batangasBounds = [
+        [13.4, 120.5], // Southwest Batangas
+        [14.2, 121.6]  // Northeast Batangas
+    ];
+
+    map.setMaxBounds(batangasBounds);
+    map.on('drag', function () {
+        map.panInsideBounds(batangasBounds, { animate: false });
+    });
+
+    /* ================================
+       BATANGAS DENGUE HEAT DATA
+       (Replace with Batangas API later)
+       ================================ */
+
+    var heatData = [
+        [13.7565, 121.0583, 0.8], // Batangas City
+        [13.7900, 121.0700, 0.6], // Bauan
+        [13.9500, 121.1000, 0.7], // Lipa
+        [13.8800, 121.2100, 0.5], // Tanauan
+        [13.6600, 121.0100, 0.4]  // Lemery
+    ];
+
+    L.heatLayer(heatData, {
+        radius: 30,
+        blur: 20,
+        maxZoom: 11
+    }).addTo(map);
+
+    /* ================================
+       FUTURE: BATANGAS API SAMPLE
+       ================================
+       fetch("/api/batangas-dengue")
+           .then(res => res.json())
+           .then(data => {
+               L.heatLayer(data, {...}).addTo(map);
+           });
+    */
+</script>
+
+</body>
+</html>

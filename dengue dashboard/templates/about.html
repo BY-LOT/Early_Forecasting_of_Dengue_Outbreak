@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | Dengue Forecast System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-text">
+        BATANGAS Dengue<br><span>Forecast System</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li class="active"><a href="/about">About</a></li>
+        <li class="search">Specify Forecast</li>
+    </ul>
+</nav>
+
+<section class="about-section">
+
+    <div class="about-image">
+        <img src="{{ url_for('static', filename='images/dengue_logo.png') }}" alt="Dengue Forecast">
+    </div>
+
+    <div class="about-content">
+        <h2>About the System</h2>
+        <p>
+            The <strong>BATANGAS Dengue Forecast System</strong> is a web-based
+            application designed to help monitor and predict dengue outbreaks
+            in the BATANGAS.
+        </p>
+
+        <p>
+            This system provides visual data through maps and dashboards to
+            support early awareness and decision-making for communities and
+            local authorities.
+        </p>
+
+        <p>
+            By using historical data and forecasting techniques, the system
+            aims to reduce the impact of dengue through timely information
+            and preventive action.
+        </p>
+    </div>
+
+</section>
+
+</body>
+</html>

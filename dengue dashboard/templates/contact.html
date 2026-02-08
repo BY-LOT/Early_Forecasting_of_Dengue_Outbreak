@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Dengue Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-text">
+        BATANGAS Dengue<br><span>Forecast System</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li class="active"><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="search">Specify Forecast</li>
+    </ul>
+</nav>
+
+<section class="contact-section">
+
+    <div class="contact-info">
+        <h2>Contact</h2>
+        <h3>Local Government Center</h3>
+
+        <div class="info-box">
+            <strong>Telephone Number</strong>
+            <p>(632) 8651-7800<br>(632) 165-364</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Mobile Number</strong>
+            <p>(+63) 996-992-5513<br>(+63) 920-658-4689</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Email Address</strong>
+            <p>government@calabarzon.ph</p>
+        </div>
+    </div>
+
+    <div class="contact-map">
+        <iframe
+            src="https://maps.google.com/maps?q=CALABARZON&t=&z=8&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+    </div>
+
+</section>
+
+</body>
+</html>
