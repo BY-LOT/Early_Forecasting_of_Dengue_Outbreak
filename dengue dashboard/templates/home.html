@@ -30,9 +30,8 @@
         </h1>
 
         <div class="predict-container">
-            <button type="button" class="predict-btn">
-                <span class="icon-chart">📈</span>
-                Predict
+            <button onclick="scrollToPredict()" class="predict-btn">
+                📈 Predict
             </button>
         </div>
     </div>
@@ -44,6 +43,48 @@
         >
     </div>
 </section>
+
+<script>
+function scrollToPredict() {
+    document.getElementById("predict-section").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+<!-- PREDICT SECTION -->
+<section id="predict-section" class="predict-section">
+
+<div class="predict-wrapper">
+
+    <!-- MAKE NEW PREDICTION -->
+    <div class="predict-box">
+        <h2>Make New Prediction</h2>
+        <form action="/predict" method="POST">
+            <label>Number of weeks to forecast:</label><br><br>
+            <input type="number" name="weeks" min="1" max="52" required>
+            <button type="submit" class="predict-submit">
+                ⚡ Predict
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- MODEL PERFORMANCE -->
+    <div class="model-performance">
+        <h3>Model Performance</h3>
+        <div class="metric">Mean Absolute Error (MAE): {{ mae }}</div>
+        <div class="metric">Root Mean Squared Error (RMSE): {{ rmse }}</div>
+        <div class="metric">SMAPE: {{ smape }}%</div>
+        <div class="metric">MASE: {{ mase }}</div>
+    </div>
+
+</div>
+
+</section>
+
 
 <!-- FEATURES SECTION (ADDED) -->
 <section class="features">
@@ -78,3 +119,7 @@
 </body>
 </html>
 
+<form action="/predict" method="POST">
+<input type="number" name="weeks" required>
+<button type="submit">Predict</button>
+</form>
